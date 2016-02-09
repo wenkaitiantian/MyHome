@@ -1,0 +1,262 @@
+body{
+	margin: 0;
+	font-family: "Microsoft YaHei";
+}
+a{
+	color:#000;
+}
+a:hover{
+	color: #000;
+	text-decoration: none;
+}
+.header{
+	width: 100%;
+	height: 30px;
+	margin:0;
+	box-shadow: 0px -5px 10px 5px gray;
+	background-color: #fff;
+	z-index: 999;
+}
+.header>div{
+	width: 70%;
+	height: 30px;
+	margin: 0 auto;
+}
+.header>div>div:nth-child(2)>div{
+	height: 20px;
+	line-height:20px;
+	margin: 0 auto;
+	padding: 0 5px;
+	font-size: 14px;
+}
+.city{
+	width: 25%;
+	font-weight: bold;
+	float: left;
+	color: rgb(12,12,12);
+	margin-top: 5px;
+}
+.city+div{
+	width: 120px;
+	float: right;
+	margin-top: 5px;
+}
+.login{
+	border-right: 1px solid rgb(12,12,12);
+	float: left;
+}
+.regist{
+	float: left;
+}
+.container>div:first-child{
+	width: 95%;
+	height: 60px;
+	margin: 0 auto;
+}
+.logo{
+	width: 140px;
+	height: 40px;
+	margin-top: 10px;
+	float: left;
+}
+.inform{
+	width: 140px;
+	height: 40px;
+	border: 1px solid rgb(206,202,216);
+	margin-top: 10px;
+	float: right;
+}
+.inform>div{
+	width: 90px;	
+	height: 40px;
+	line-height: 40px;
+	margin:5px auto;
+}
+.inform+div{
+	width: 100%;
+	height: 60px;
+	clear: both;
+	margin: 20px auto;
+	float: left;
+}
+.content{
+	width: 95%;
+	height: 1000px;
+	clear: both;
+	margin: 0 auto;
+}
+.left-content{
+	width: 70%;
+	height: 1000px;
+	border: 1px solid #ccc;
+	border-top: 2px solid rgb(12,135,78);
+	float: left;
+}
+.left-content>div:first-child{
+	width: 90%;
+	height: 300px;
+	margin: 10px auto;
+}
+.title{
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+}
+.title+div{
+	height: 20px;
+	line-height: 20px;
+	margin: 8px auto;
+	font-size: 14px;
+}
+.time{
+	float: left;
+}
+.time+div{
+	float: right;
+	cursor: pointer;
+}
+.title+div+div{
+	width: 100%;
+	height: 220px;
+	margin-top: 44px;
+}
+.title+div+div>div{
+	height: 40px;
+	margin-top: 5px;
+}
+.title+div+div>div:nth-child(2n){
+	border-bottom: 1px dashed #ccc;
+}
+.title+div+div>div>div:first-child{
+	width: 80px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	float: left;
+}
+.title+div+div>div>div:last-child{
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+.left-cotent>div:nth-child(2){
+	width: 90%;
+	height: 500px;
+	margin: 0 auto;
+}
+.detail{
+	width: 90%;
+	font-size:16px;
+	height: 40px;
+	line-height: 40px;
+	margin: 20px auto;
+}
+.detail+div{
+	width: 90%;
+}
+.detail+div img{
+	width: 100%;
+}
+.right-content{
+	width: 25%;
+	height: 1000px;
+	border: 1px solid #ccc;
+	border-top: 2px solid #ccc;
+	margin-left: 20px;
+	float: left;
+}
+.right-content>div:first-child{
+	width: 90%;
+	height: 150px;
+	margin: 10px auto;
+}
+.right-content>div:first-child>div:first-child{
+	width: 100px;
+	height: 100px;
+	margin: 5px auto;
+}
+.right-content>div:first-child>div:first-child>img{
+	width: 100px;
+	height: 100px;
+}
+.right-content>div:first-child>div:last-child{
+	width: 40%;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	margin: 0 auto;
+}
+.right-content>div:last-child{
+	width: 90%;
+	margin: 10px auto;
+}
+.right-content>div:last-child>div:first-child{
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+}
+.right-content>div:last-child>div:not(:first-child){
+	width: 80%;
+	height: 120px;
+	margin: 5px auto;
+}
+.footer{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background-color: rgb(12,45,34);
+	color: #fff;
+	clear: both;
+	margin-top: 20px;
+}
+#back{
+	width: 200px;
+	height: 160px;
+	position: fixed;
+	right: 50px;
+	bottom: 5px;	
+	background-color: transparent;
+	color: #fff;
+}
+#back>div:first-child{
+	width: 100%;
+	height: 113px;
+	border: 1px solid gray;
+}
+#back>div:first-child img{
+	width: 100%;
+}
+#back>div:nth-child(2){
+	width: 100%;
+	height: 10px;
+	background-color: transparent;
+}
+#back>div:nth-child(3){
+	width: 100px;
+	height: 30px;
+	padding-left: 2px;
+	line-height: 30px;
+	float: left;
+}
+#back>div:last-child{
+	width: 100px;
+	height: 30px;
+	padding-left: 2px;
+	line-height: 30px;
+	float: left;
+}
+#back>div:nth-child(n+3){
+	background-color: gray;
+	font-family: "Microsoft YaHei";
+	font-size: 16px;
+	cursor: pointer;
+}
+#back>div:nth-child(n+3):hover{
+	background-color: rgb(82,71,71);
+}
+.email:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}

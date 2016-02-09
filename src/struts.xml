@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <package name="user" namespace="/" extends="struts-default">
+                <action name="user_*" class="com.action.UserAction" method="{1}">
+                        <result name="regsuccess">/login.jsp</result>
+                        <result name="logout">/login.jsp</result>
+                        <result name="logsuccess">/index.jsp</result>
+                        <result name="toPersonalPage">/publish.jsp</result>
+                        <result name="changesuccess">/account.jsp</result>
+                </action>
+        </package>
+
+        <package name="post" namespace="/" extends="struts-default">
+                <action name="post_*" class="com.action.PostAction" method="{1}">
+                        <result name="success_rent">/index_rent.jsp</result>
+                        <result name="success_sale">/index_sale.jsp</result>
+                        <result name="success_needrent">/index_needrent.jsp</result>
+                        <result name="success_index">/index.jsp</result>
+                        <result name="selsuccess_sale">/search_sale.jsp</result>
+                        <result name="castsuccess_rent">/cast_rent.jsp</result>
+                        <result name="castsuccess_sale">/cast_sale.jsp</result>
+                        <result name="castsuccess_needrent">/cast_needrent.jsp</result>
+                        <result name="detail_rent">/detail_rent.jsp</result>
+                        <result name="detail_sale">/detail_sale.jsp</result>
+                        <result name="postsuccess" type="redirect">/index.jsp</result>
+
+                </action>
+        </package>
+
+        <package name="help" namespace="/" extends="struts-default">
+                <action name="help_*" class="com.action.HelpAction" method="{1}">
+                        <result name="helpdetail">/detail_needrent.jsp</result>
+                        <result name="postsuccess" type="redirect">/index.jsp</result>
+                </action>
+        </package>
+
+        <package name="collect" namespace="/" extends="struts-default">
+                <action name="collect_*" class="com.action.CollectAction" method="{1}">
+                        <result name="toCollection">/collection.jsp</result>
+                </action>
+        </package>
+
+        <package name="admin" namespace="/" extends="struts-default">
+                <action name="admin_*" class="com.action.AdminAction" method="{1}">
+                        <result name="logsuccess">/admin.jsp</result>
+                        <result name="toAdmin_post">/admincheck_post.jsp</result>
+                        <result name="toSelect_post">/admincheck_post.jsp</result>
+                        <result name="toAdmin_help">/admincheck_help.jsp</result>
+                        <result name="toSelect_help">/admincheck_help.jsp</result>
+
+                        <result name="toAdmin_user">/usermanage.jsp</result>
+                        <result name="toSelect_user">/usermanage.jsp</result>
+
+                        <result name="toAdminmanage">/adminmanage.jsp</result>
+                        <result name="toSelect_admin">/adminmanage.jsp</result>
+                        <result name="addsuccess" type="redirect">/admin.jsp</result>
+                        <result name="exit">/adminlogin.jsp</result>
+                </action>
+        </package>
+
+</struts>

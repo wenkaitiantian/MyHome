@@ -1,0 +1,61 @@
+body{
+	margin:0;
+}
+.warn{
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-family: "Microsoft YaHei";
+	margin: 0 auto;
+	background-color: #337AB7;
+	display: none;
+}
+.loginblock{
+	width: 100%;
+	height: 550px;
+	margin: 3% auto;
+}
+.loginblock>div:first-child{
+	width: 55%;
+	height: 450px;
+	margin-top: 50px;
+	float: left;
+}
+.loginblock>div:first-child>img{
+	width: 100%;
+	height: 100%;
+}
+.loginblock>div:nth-child(2){
+	width: 40%;
+	height: 450px;
+	margin-top: 50px;
+	float: right;
+}
+.loginblock>div:nth-child(2)>div:first-child{
+	width: 100%;
+	height: 110px;
+}
+.loginblock>div:nth-child(2)>div:nth-child(2){
+	width: 80%;
+	height: 180px;
+	margin: 20px auto;
+}
+.loginblock>div:nth-child(2)>div:last-child{
+	width: 80%;
+	margin: 10px auto;
+}
+.loginblock>div:nth-child(2)>div:last-child>div:first-child{
+	float: left;
+}
+.loginblock>div:nth-child(2)>div:last-child>div:last-child{
+	float: right;
+}
+.footer{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background-color: rgb(12,45,34);
+	color: #fff;
+}
