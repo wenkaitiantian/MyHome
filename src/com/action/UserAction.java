@@ -116,6 +116,8 @@ public class UserAction {
         if(icon!=null){
             String iconpath= FileSave.saveFile(getIconFileName(),icon);
             user.setIcon(iconpath);
+        }else{
+            user.setIcon("img/default_icon.jpg");
         }
         ud.register(user);
         return "regsuccess";
