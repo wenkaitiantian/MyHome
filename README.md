@@ -17,7 +17,7 @@ Model 层使用了 **Hibernate** 做数据持久化处理。
 
 ##JavaMail
 
-调用了 JavaMail 的接口，实现了注册时的邮箱验证功能。
+调用了 **JavaMail** 的接口，实现了注册时的邮箱验证功能。
 
 ##Service
 
