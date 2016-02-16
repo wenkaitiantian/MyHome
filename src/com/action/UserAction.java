@@ -37,11 +37,10 @@ public class UserAction {
     private File icon;
     private String iconFileName;
     private String iconContentType;
-
+    private UserDao ud=new UserDaoImpl();
 
     public void checkLogin() throws Exception{
         HttpServletResponse response=ServletActionContext.getResponse();
-        UserDao ud=new UserDaoImpl();
         if(ud.login(username,password)==null){
             response.getWriter().print("wrong");
             return;
@@ -50,7 +49,6 @@ public class UserAction {
     }
 
     public String login(){
-        UserDao ud=new UserDaoImpl();
         User user=new User();
         user=ud.login(username,password);
         ActionContext.getContext().getSession().put("user",user);
@@ -63,7 +61,6 @@ public class UserAction {
 
     public void checkEmail() throws Exception{
         HttpServletResponse response=ServletActionContext.getResponse();
-        UserDao ud=new UserDaoImpl();
         Pattern p = Pattern.compile("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\\.([a-zA-Z0-9_-])+)+$");
         Matcher m = p.matcher(email);
         if(!m.matches()){
@@ -83,7 +80,6 @@ public class UserAction {
 
     public void checkRegister() throws Exception{
         HttpServletResponse response=ServletActionContext.getResponse();
-        UserDao ud=new UserDaoImpl();
         if(ActionContext.getContext().getSession().get("codes")==null){
             response.getWriter().print("emptycode");
             return;
@@ -105,7 +101,6 @@ public class UserAction {
     }
 
     public String register() throws Exception{
-        UserDao ud=new UserDaoImpl();
         User user=new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -124,7 +119,6 @@ public class UserAction {
     }
 
     public String change() throws Exception{
-        UserDao ud=new UserDaoImpl();
         User user=new User();
         user=(User)ActionContext.getContext().getSession().get("user");
         user.setPassword(password);

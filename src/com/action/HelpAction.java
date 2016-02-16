@@ -25,8 +25,9 @@ public class HelpAction {
     private String find;
 
     private String detail;
+    private HelpDao hd=new HelpDaoImpl();
+
     public String post() {
-        HelpDao hd = new HelpDaoImpl();
         Help help = new Help();
         User user = (User) ActionContext.getContext().getSession().get("user");
         int id = user.getId();
@@ -44,7 +45,6 @@ public class HelpAction {
     }
 
     public String update() {
-        HelpDao hd = new HelpDaoImpl();
         Help help = new Help();
         help=hd.getHelp(Integer.parseInt(upId));
         help.setDistrict(district);
@@ -60,7 +60,6 @@ public class HelpAction {
     }
 
     public void delete() {
-        HelpDao hd = new HelpDaoImpl();
         int id = Integer.parseInt(delId);
         hd.delete(id);
     }
@@ -68,7 +67,6 @@ public class HelpAction {
     public String detail(){
         Help help=new Help();
         UserDao ud=new UserDaoImpl();
-        HelpDao hd=new HelpDaoImpl();
         help=hd.getHelp(Integer.parseInt(detail));
         User user=ud.getUser(help.getPostid());
         String iconPath=user.getIcon();

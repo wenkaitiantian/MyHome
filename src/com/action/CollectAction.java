@@ -18,6 +18,7 @@ import java.util.List;
 
 public class CollectAction {
     private String hid;
+    private CollectDao cd=new CollectDaoImpl();
 
     public String getHid() {
         return hid;
@@ -29,7 +30,6 @@ public class CollectAction {
 
     public void collect() throws Exception{
         HttpServletResponse response=ServletActionContext.getResponse();
-        CollectDao cd=new CollectDaoImpl();
         User user= (User)ActionContext.getContext().getSession().get("user");
         int id=user.getId();
         PostDao pd=new PostDaoImpl();
@@ -45,7 +45,6 @@ public class CollectAction {
     }
 
     public void cancel(){
-        CollectDao cd=new CollectDaoImpl();
         User user= (User)ActionContext.getContext().getSession().get("user");
         int uid=user.getId();
         Collect collect=cd.getCollect(uid,Integer.parseInt(hid));
@@ -53,7 +52,6 @@ public class CollectAction {
     }
 
     public void test() throws Exception{
-        CollectDao cd=new CollectDaoImpl();
         User user= (User)ActionContext.getContext().getSession().get("user");
         int uid=user.getId();
         Collect collect=cd.getCollect(uid,Integer.parseInt(hid));
@@ -69,7 +67,6 @@ public class CollectAction {
         HttpServletRequest request = ServletActionContext.getRequest();
         User user=(User)ActionContext.getContext().getSession().get("user");
         int id=user.getId();
-        CollectDao cd=new CollectDaoImpl();
         PostDao pd=new PostDaoImpl();
         List list=cd.getMyCollect(id);
         List<Post> posts=pd.getCollectPost(list);

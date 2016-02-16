@@ -54,8 +54,9 @@ public class PostAction {
     private String cast;
     private String detail;
 
+    private PostDao pd = new PostDaoImpl();
+
     public String post() {
-        PostDao pd = new PostDaoImpl();
         Post post = new Post();
         User user = (User) ActionContext.getContext().getSession().get("user");
         int id = user.getId();
@@ -88,7 +89,6 @@ public class PostAction {
     }
 
     public String update() {
-        PostDao pd = new PostDaoImpl();
         Post post = new Post();
         post = pd.getPost(Integer.parseInt(upId));
         post.setTypes(Integer.parseInt(types));
@@ -110,7 +110,6 @@ public class PostAction {
     }
 
     public void delete() {
-        PostDao pd = new PostDaoImpl();
         int id = Integer.parseInt(delId);
         pd.delete(id);
     }
@@ -154,39 +153,39 @@ public class PostAction {
         String hql2;
         String hql2_2;
         if (price.equals("0,9999")) {
-            if(loc.equals("")){
+            if (loc.equals("")) {
                 hql2 = "from Post where types=1 and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1] +" order by posttime desc";
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
 
                 hql2_2 = "from Post where types=1 and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1] +" order by money";
-            }else{
-                hql2 = "from Post where types=1 and location ='"+ loc + "' and mo" +
-                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by posttime desc";
-
-                hql2_2 = "from Post where types=1 and location ='"+ loc + "' and mo" +
-                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by money";
-            }
-        } else {
-            if(loc.equals("")){
-                hql2 = "from Post where types=1 and mo" +
-                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by posttime desc";
-                hql2_2 = "from Post where types=1 and mo" +
-                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by money";
-            }else{
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
+            } else {
                 hql2 = "from Post where types=1 and location ='" + loc + "' and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by posttime desc";
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
 
                 hql2_2 = "from Post where types=1 and location ='" + loc + "' and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
-                        + a[1] + " and rooms between " + h[0] + " and " + h[1]+" order by money";
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
+            }
+        } else {
+            if (loc.equals("")) {
+                hql2 = "from Post where types=1 and mo" +
+                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
+                hql2_2 = "from Post where types=1 and mo" +
+                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
+            } else {
+                hql2 = "from Post where types=1 and location ='" + loc + "' and mo" +
+                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
+
+                hql2_2 = "from Post where types=1 and location ='" + loc + "' and mo" +
+                        "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
+                        + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
             }
         }
 
@@ -198,26 +197,26 @@ public class PostAction {
         return "selsuccess_sale";
     }
 
-    public String getCastQuery(){
+    public String getCastQuery() {
         HttpServletRequest request = ServletActionContext.getRequest();
-        String hql1,hql2,hql3,hql1_2,hql2_2,hql3_2;
-        ActionContext.getContext().getSession().put("cast",cast);
-        if(cast.equals("")){
-            hql1="from Post where types = 0"+" order by posttime desc";
-            hql2="from Post where types = 1"+" order by posttime desc";
-            hql3="from Help"+" order by posttime desc";
+        String hql1, hql2, hql3, hql1_2, hql2_2, hql3_2;
+        ActionContext.getContext().getSession().put("cast", cast);
+        if (cast.equals("")) {
+            hql1 = "from Post where types = 0" + " order by posttime desc";
+            hql2 = "from Post where types = 1" + " order by posttime desc";
+            hql3 = "from Help" + " order by posttime desc";
 
-            hql1_2="from Post where types = 0 order by money";
-            hql2_2="from Post where types = 1 order by money";
-            hql3_2="from Help order by money";
-        }else{
-            hql1="from Post where types = 0 and title like '%"+cast+"%'"+" order by posttime desc";
-            hql2="from Post where types = 1 and title like '%"+cast+"%'"+" order by posttime desc";
-            hql3="from Help where title like '%"+cast+"%'";
+            hql1_2 = "from Post where types = 0 order by money";
+            hql2_2 = "from Post where types = 1 order by money";
+            hql3_2 = "from Help order by money";
+        } else {
+            hql1 = "from Post where types = 0 and title like '%" + cast + "%'" + " order by posttime desc";
+            hql2 = "from Post where types = 1 and title like '%" + cast + "%'" + " order by posttime desc";
+            hql3 = "from Help where title like '%" + cast + "%'";
 
-            hql1_2="from Post where types = 0 and title like '%"+cast+"%'"+" order by money";
-            hql2_2="from Post where types = 1 and title like '%"+cast+"%'"+" order by money";
-            hql3_2="from Help where title like '%"+cast+"%'"+" order by money";
+            hql1_2 = "from Post where types = 0 and title like '%" + cast + "%'" + " order by money";
+            hql2_2 = "from Post where types = 1 and title like '%" + cast + "%'" + " order by money";
+            hql3_2 = "from Help where title like '%" + cast + "%'" + " order by money";
         }
         PageBean pageBean1 = PageBean.getPageBean(8, page, hql1);
         PageBean pageBean2 = PageBean.getPageBean(8, page, hql2);
@@ -243,19 +242,18 @@ public class PostAction {
         }
     }
 
-    public String detail(){
-        Post p=new Post();
-        PostDao pd=new PostDaoImpl();
-        UserDao ud=new UserDaoImpl();
-        p=pd.getPost(Integer.parseInt(detail));
-        String iconPath=new String();
-        iconPath=ud.getUser(p.getPostid()).getIcon();
-        HttpServletRequest request= ServletActionContext.getRequest();
-        request.setAttribute("detail",p);
-        request.setAttribute("path",iconPath);
-        if(p.getTypes()==0){
+    public String detail() {
+        Post p = new Post();
+        UserDao ud = new UserDaoImpl();
+        p = pd.getPost(Integer.parseInt(detail));
+        String iconPath = new String();
+        iconPath = ud.getUser(p.getPostid()).getIcon();
+        HttpServletRequest request = ServletActionContext.getRequest();
+        request.setAttribute("detail", p);
+        request.setAttribute("path", iconPath);
+        if (p.getTypes() == 0) {
             return "detail_rent";
-        }else{
+        } else {
             return "detail_sale";
         }
     }

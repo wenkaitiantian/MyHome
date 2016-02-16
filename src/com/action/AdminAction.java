@@ -26,9 +26,9 @@ public class AdminAction {
     private String delId;
     private String find;
     private String message;
+    private AdminDao ad=new AdminDaoImpl();
 
     public String login(){
-        AdminDao ad=new AdminDaoImpl();
         Admin admin=ad.login(name,password);
         ActionContext.getContext().getSession().put("admin",admin);
         return "logsuccess";
@@ -36,7 +36,6 @@ public class AdminAction {
 
     public void checkLogin() throws Exception{
         HttpServletResponse response= ServletActionContext.getResponse();
-        AdminDao ad=new AdminDaoImpl();
         Admin admin=ad.login(name,password);
         if(admin!=null){
             response.getWriter().print(true);
@@ -46,7 +45,6 @@ public class AdminAction {
     }
 
     public String addAdmin() {
-        AdminDao ad = new AdminDaoImpl();
         Admin admin = new Admin();
         admin.setName(name);
         admin.setPassword(password);
@@ -148,13 +146,11 @@ public class AdminAction {
     }
 
     public void deleteAdmin(){
-        AdminDao ad=new AdminDaoImpl();
         ad.delete(Integer.parseInt(delId));
     }
 
     public String getAdmin(){
         HttpServletRequest request=ServletActionContext.getRequest();
-        AdminDao ad=new AdminDaoImpl();
         List<Admin> list=ad.getAllAdmin();
         request.setAttribute("admins",list);
         return "toAdminmanage";
@@ -162,7 +158,6 @@ public class AdminAction {
 
     public String getSelectAdmin(){
         HttpServletRequest request=ServletActionContext.getRequest();
-        AdminDao ad=new AdminDaoImpl();
         List<Admin> list;
         if(!message.equals("")){
             list=ad.find(message);
