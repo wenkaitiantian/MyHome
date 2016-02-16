@@ -87,6 +87,7 @@
 				<div>
 					<div class="detail">更多介绍</div>
 					<div style="margin-left: 33px;">
+						${requestScope.detail.message}
 						<%--<s:property value="#request.detail.message"/>--%>
 					</div>
 				</div>

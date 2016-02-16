@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	String path = request.getContextPath();
@@ -100,13 +101,13 @@
 				<div>
 					<div class="detail">更多介绍</div>
 					<div style="margin-left: 33px;">
+						${requestScope.detail.message}
 						<%--<s:property value="#request.detail.message"/>--%>
 					</div>
 				</div>
 			</div>
 			<div class="right-content">
 				<div>
-					<%--<div><img width="100%" height="100%" src="uploadFiles\2016-02-03 213938\pic.jpg"></div>--%>
 					<div>
 						<s:if test="#request.path!=null">
 							<img width="100%" height="100%" src="<s:property value="#request.path"/>"/>
