@@ -11,14 +11,10 @@ import com.models.Help;
 import com.models.Post;
 import com.models.User;
 import com.opensymphony.xwork2.ActionContext;
-import com.utils.Dates;
 import com.utils.FileSave;
 import com.utils.IndexBean;
 import com.utils.SendEmail;
 import org.apache.struts2.ServletActionContext;
-
-import javax.mail.Session;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;

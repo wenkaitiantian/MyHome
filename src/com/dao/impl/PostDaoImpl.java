@@ -3,7 +3,6 @@ package com.dao.impl;
 import com.dao.PostDao;
 import com.models.Post;
 import com.utils.MySessionFactory;
-import javafx.geometry.Pos;
 import org.hibernate.Query;
 import org.hibernate.Session;
 

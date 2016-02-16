@@ -13,9 +13,7 @@ import com.models.Help;
 import com.models.Post;
 import com.models.User;
 import com.opensymphony.xwork2.ActionContext;
-import javafx.geometry.Pos;
 import org.apache.struts2.ServletActionContext;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;

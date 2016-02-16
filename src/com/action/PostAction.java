@@ -7,23 +7,12 @@ import com.dao.impl.UserDaoImpl;
 import com.models.Post;
 import com.models.User;
 import com.opensymphony.xwork2.ActionContext;
-import com.sun.deploy.net.HttpRequest;
 import com.utils.Dates;
 import com.utils.IndexBean;
 import com.utils.PageBean;
-import com.utils.Paging;
-import org.apache.catalina.connector.Request;
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.metamodel.relational.Size;
-
-import javax.mail.Session;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.xml.ws.Action;
-import javax.xml.ws.spi.http.HttpContext;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class PostAction {
     private String types;

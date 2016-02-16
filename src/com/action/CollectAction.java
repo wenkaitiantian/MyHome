@@ -9,11 +9,8 @@ import com.models.Post;
 import com.models.User;
 import com.opensymphony.xwork2.ActionContext;
 import org.apache.struts2.ServletActionContext;
-
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.spi.http.HttpContext;
 import java.util.List;
 
 public class CollectAction {
