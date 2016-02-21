@@ -148,8 +148,6 @@
 		)
 	}
 	$(function(){
-	//	document.getElementById("imgHead").src="img/m1.jpg"
-	//	alert(document.getElementById("imgHead").src);
 		$("#sub").click(function(){
 			var a=$("input[name='password']").val();
 			var b=$("input[name='reusepassword']").val();
