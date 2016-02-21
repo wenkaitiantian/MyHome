@@ -114,6 +114,19 @@ public class UserAction {
         return "regsuccess";
     }
 
+    public void changeIcon() throws Exception{
+        HttpServletResponse response=ServletActionContext.getResponse();
+        User user=(User)ActionContext.getContext().getSession().get("user");
+        String iconpath="";
+        if(icon!=null){
+            iconpath= FileSave.saveFile(getIconFileName(),icon);
+            user.setIcon(iconpath);
+        }
+        ud.change(user);
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().print(iconpath);
+    }
+
     public String change() throws Exception{
         User user=new User();
         user=(User)ActionContext.getContext().getSession().get("user");

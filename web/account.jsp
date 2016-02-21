@@ -10,6 +10,7 @@
 	<title>我的账户</title>
 	<link rel="stylesheet" href="css/bootstrap-3.3.5-dist/css/bootstrap.css">
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js"></script>
 	<style>
 		body{
 			margin:0;
@@ -101,9 +102,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td><img src="<s:property value="#session.user.icon"/>"style="width:60px;height:60px;display:inline"></td>
+						<td id="cc"><img id="imgHead" src="<s:property value="#session.user.icon"/>" style="width:60px;height:60px;display:inline"></td>
 						<td>
-							<input type="file" name="icon">
+							<input type="file" id="icon" name="icon" onchange="changes();">
 						</td>
 					</tr>
 					<tr>
@@ -131,7 +132,24 @@
 	</div>
 </body>
 <script>
+	function changes(){
+		$.ajaxFileUpload(
+				{
+					url:"user_changeIcon.action",
+					secureuri:false,
+					fileElementId:"icon",
+					dataType:"text",
+					success: function(data){
+						document.getElementById("imgHead").src=data;
+					},error: function(){
+					alert("头像上传失败！");
+				}
+				}
+		)
+	}
 	$(function(){
+	//	document.getElementById("imgHead").src="img/m1.jpg"
+	//	alert(document.getElementById("imgHead").src);
 		$("#sub").click(function(){
 			var a=$("input[name='password']").val();
 			var b=$("input[name='reusepassword']").val();
@@ -139,7 +157,8 @@
 				alert("两次密码输入不一致！");
 				return false;
 			}
-		})
+		});
+
 	})
 </script>
 </html>
