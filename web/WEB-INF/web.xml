@@ -10,8 +10,8 @@
     </filter>
 
     <!--<filter>-->
-        <!--<filter-name>struts2</filter-name>-->
-        <!--<filter-class>com.utils.MyStrutsFilter</filter-class>-->
+    <!--<filter-name>struts2</filter-name>-->
+    <!--<filter-class>com.utils.MyStrutsFilter</filter-class>-->
     <!--</filter>-->
 
     <filter-mapping>
@@ -24,7 +24,6 @@
         <filter-name>struts2</filter-name>
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
-
 
 
     <welcome-file-list>
