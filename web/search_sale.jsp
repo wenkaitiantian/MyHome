@@ -31,25 +31,25 @@
     <div>
         <div class="city"></div>
         <div>
-            <div class="login"><a href="login.jsp">登录</a></div>
-            <div class="regist"><a href="register.jsp">注册</a></div>
+            <div class="login"><a href="login.jsp" id="log">登录</a></div>
+            <div class="regist"><a href="register.jsp" id="reg">注册</a></div>
         </div>
     </div>
 </div>
-<div class="container">
+<form action="<%=path%>/post_getCastQuery.action?tab=<%="1"%>" method="post" id="cast">
     <div class="top">
-        <div class="logo">
-            <a href="<%=path%>/post_getIndexQuery.action">
-                <img src="img/logo.jpg" width="100%" height="100%">
-            </a>
-        </div>
+        <div class="logo"><a href="<%=path%>/post_getIndexQuery.action?tab=<%="2"%>"><img src="img/logo.jpg"
+                                                                                          width="100%"
+                                                                                          height="100%"></a></div>
         <div></div>
         <div>
             <div class="search">
-                <span><input type="text" placeholder="搜索"></span>
-                <div>
+                    <span>
+                        <input type="text" placeholder="搜索" name="cast"/>
+                    </span>
+                <div class="poi" id="sub_cast">
                     <div>
-                        <a href="#"><i class="icon-search icon-large"></i></a>
+                        <a><i class="icon-search icon-large"></i></a>
                     </div>
                 </div>
             </div>
@@ -59,19 +59,20 @@
                 <div><a href="personalpage.jsp"><i class="icon-edit icon-2x"></i>发布信息</a></div>
             </div>
         </div>
-        <div><img src="img/tit.png" width="100%" height="100%" alt="#"></div>
+        <div><img src="img/tit.png" width="100%" height="100%"/></div>
     </div>
-    <div class="select">
-        <div class="selecttab">
-            <div style="font-weight: bold;font-size: 17px">&nbsp;筛选</div>
-        </div>
-        <form action="<%=path%>/post_getSelectQuery.action" method="post" id="find">
-            <input type="hidden" name="price" value="">
-            <input type="hidden" name="area" value="">
-            <input type="hidden" name="house" value="">
-            <div class="selection">
-                <dl>
-                    <dd>
+</form>
+<div class="select">
+    <div class="selecttab">
+        <div style="font-weight: bold;font-size: 17px">&nbsp;筛选</div>
+    </div>
+    <form action="<%=path%>/post_getSelectQuery.action" method="post" id="find">
+        <input type="hidden" name="price" value="">
+        <input type="hidden" name="area" value="">
+        <input type="hidden" name="house" value="">
+        <div class="selection">
+            <dl>
+                <dd>
                         <span style="font-weight: bold">
                             区域&nbsp;
                         </span>
@@ -79,11 +80,11 @@
                             <input type="text" name="loc" placeholder="&nbsp;不限"
                                    style="margin-top: 2px ;height:25px;width: 100px"/>
                         </span>
-                        <button id="sub">确认搜索</button>
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
+                    <button id="sub">确认搜索</button>
+                </dd>
+            </dl>
+            <dl>
+                <dd>
                         <span style="font-weight: bold">
                             总价&nbsp;
                         </span>
@@ -105,9 +106,9 @@
                         <span class="price-sel" value="100,150">
                             100-150万&nbsp;
                         </span>
-                        <a class="price-sel" value="150,200">
-                            150-200万&nbsp;
-                        </a>
+                    <a class="price-sel" value="150,200">
+                        150-200万&nbsp;
+                    </a>
                         <span class="price-sel" value="200,300">
                             200-300万&nbsp;
                         </span>
@@ -117,10 +118,10 @@
                         <span class="price-sel" value="400,9999">
                             400万以上
                         </span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
+                </dd>
+            </dl>
+            <dl>
+                <dd>
                         <span style="font-weight: bold">
                             面积&nbsp;
                         </span>
@@ -142,9 +143,9 @@
                         <span class="area-sel" value="110,130">
                             110-130㎡&nbsp;
                         </span>
-                        <a class="area-sel" value="130,150">
-                            130-150㎡&nbsp;
-                        </a>
+                    <a class="area-sel" value="130,150">
+                        130-150㎡&nbsp;
+                    </a>
                         <span class="area-sel" value="150,200">
                             150-200㎡&nbsp;
                         </span>
@@ -157,10 +158,10 @@
                         <span class="area-sel" value="500,9999">
                             500㎡以上
                         </span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
+                </dd>
+            </dl>
+            <dl>
+                <dd>
                         <span style="font-weight: bold">
                                 厅室&nbsp;
                         </span>
@@ -182,87 +183,89 @@
                         <span class="house-sel" value="5,999">
                             四室以上
                         </span>
-                    </dd>
-                </dl>
-            </div>
-        </form>
+                </dd>
+            </dl>
+        </div>
+    </form>
+</div>
+<div class="tab">
+    <div>
+        <a>
+            <div class="tabselect highlight">房屋出售</div>
+        </a>
     </div>
-    <div class="tab">
-        <div>
-            <a><div class="tabselect highlight">房屋出售</div></a>
-        </div>
-        <div>
+    <div>
 
-        </div>
-        <div>
+    </div>
+    <div>
 
-            <div class="saleblock" style="display:none;">
+        <div class="saleblock" style="display:none;">
 
-                <s:iterator value="#request.pageBean2.list" id="post">
-                    <div class="sale">
-                        <div class="picture">
-                            <a href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
+            <s:iterator value="#request.pageBean2.list" id="post">
+                <div class="sale">
+                    <div class="picture">
+                        <a href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
                             <img src="img/m3.jpg" width="100%" height="100%"/>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
                             <div><s:property value="#post.title"/></div>
-                            </a>
-                            <div>小区名称：<s:property value="#post.plotname"/></div>
-                            <div>房屋户型：<s:property value="#post.housetype"/></div>
-                            <div>联系人：<s:property value="#post.linkname"/></div>
-                            <div>发布时间：<s:property value="#post.posttime"/></div>
-                        </div>
-                        <div class="price">价格：<s:property value="#post.money"/></div>
+                        </a>
+                        <div>小区名称：<s:property value="#post.plotname"/></div>
+                        <div>房屋户型：<s:property value="#post.housetype"/></div>
+                        <div>联系人：<s:property value="#post.linkname"/></div>
+                        <div>发布时间：<s:property value="#post.posttime"/></div>
                     </div>
-                </s:iterator>
+                    <div class="price">价格：<s:property value="#post.money"/></div>
+                </div>
+            </s:iterator>
 
-                <div>
-                    <s:if test="#request.pageBean2.currentPage == 1">
-                        <div style="text-decoration: none;">首页</div>
-                        <div style="text-decoration: none;">上一页</div>
-                    </s:if>
-                    <s:else>
-                        <div>
-                            <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>">首页</a>
-                        </div>
-                        <div style="text-decoration: underline;">
-                            <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.currentPage - 1"/>">
-                                上一页
-                            </a>
-                        </div>
-                    </s:else>
-
-                    <div style="text-decoration: none">
-                        <s:property value="#request.pageBean2.currentPage"/>
+            <div>
+                <s:if test="#request.pageBean2.currentPage == 1">
+                    <div style="text-decoration: none;">首页</div>
+                    <div style="text-decoration: none;">上一页</div>
+                </s:if>
+                <s:else>
+                    <div>
+                        <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>">首页</a>
                     </div>
-
-                    <s:if test="#request.pageBean2.currentPage != #request.pageBean2.totalPage">
-                        <div>
-                            <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.currentPage + 1"/>">
-                                下一页
-                            </a>
-                        </div>
-                        <div>
-                            <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.totalPage"/>">
-                                尾页
-                            </a>
-                        </div>
-                    </s:if>
-                    <s:else>
-                        <div style="text-decoration: none;">下一页</div>
-                        <div style="text-decoration: none;">尾页</div>
-                    </s:else>
-                    <div style="text-decoration: none;">
-                        (共<s:property value="#request.pageBean2.totalPage"/>页)
+                    <div style="text-decoration: underline;">
+                        <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.currentPage - 1"/>">
+                            上一页
+                        </a>
                     </div>
+                </s:else>
+
+                <div style="text-decoration: none">
+                    <s:property value="#request.pageBean2.currentPage"/>
                 </div>
 
+                <s:if test="#request.pageBean2.currentPage != #request.pageBean2.totalPage">
+                    <div>
+                        <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.currentPage + 1"/>">
+                            下一页
+                        </a>
+                    </div>
+                    <div>
+                        <a href="<%=path%>/post_getSelectQuery.action?tab=<%="2"%>&page=<s:property value="#request.pageBean2.totalPage"/>">
+                            尾页
+                        </a>
+                    </div>
+                </s:if>
+                <s:else>
+                    <div style="text-decoration: none;">下一页</div>
+                    <div style="text-decoration: none;">尾页</div>
+                </s:else>
+                <div style="text-decoration: none;">
+                    (共<s:property value="#request.pageBean2.totalPage"/>页)
+                </div>
             </div>
 
         </div>
+
     </div>
+</div>
 </div>
 <div class="foot">
     <div>
@@ -302,6 +305,23 @@
 </body>
 <script>
     $(function () {
+        <s:if test="#session.user!=null">
+          $("#log").text("<s:property value="#session.user.username"/>");
+          $("#reg").text("注销");
+        </s:if>
+
+        $("#reg").click(function(){
+            if($("#reg").text()=="注销"){
+                $("#reg").attr("href","<%=path%>/user_logout.action");
+            }
+        });
+
+        $("#log").click(function(){
+            if($("#log").text()!="登录"){
+                $("#log").attr("href","personalpage.jsp");
+            }
+        })
+
         var province = '';
         $.getScript("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js", function () {
             province = remote_ip_info["province"];
@@ -313,30 +333,30 @@
         var area;
         var house;
 
-        $(".price-sel").click(function(){
-            price=$(this).attr("value");
+        $(".price-sel").click(function () {
+            price = $(this).attr("value");
             $(this).addClass("addcss");
             $(this).nextAll().removeClass("addcss");
             $(this).prevAll().removeClass("addcss");
         });
 
-        $(".area-sel").click(function(){
-            area=$(this).attr("value");
+        $(".area-sel").click(function () {
+            area = $(this).attr("value");
             $(this).addClass("addcss");
             $(this).nextAll().removeClass("addcss");
             $(this).prevAll().removeClass("addcss");
         });
 
-        $(".house-sel").click(function(){
-            house=$(this).attr("value");
+        $(".house-sel").click(function () {
+            house = $(this).attr("value");
             $(this).addClass("addcss");
             $(this).nextAll().removeClass("addcss");
             $(this).prevAll().removeClass("addcss");
         });
-        $("#sub").click(function(){
-            $("input[name='price']").attr("value",price);
-            $("input[name='area']").attr("value",area);
-            $("input[name='house']").attr("value",house);
+        $("#sub").click(function () {
+            $("input[name='price']").attr("value", price);
+            $("input[name='area']").attr("value", area);
+            $("input[name='house']").attr("value", house);
             $("#find").submit();
         });
 
@@ -347,6 +367,10 @@
         $(".saleblock").show();
         $(".saleblock").prev().hide();
         $(".saleblock").nextAll().hide();
+
+        $("#sub_cast").click(function(){
+            $("#cast").submit();
+        });
     })
 </script>
 </html>

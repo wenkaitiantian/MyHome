@@ -31,15 +31,17 @@
     <div>
         <div class="city"></div>
         <div>
-            <div class="login"><a href="login.jsp">登录</a></div>
-            <div class="regist"><a href="register.jsp">注册</a></div>
+            <div class="login"><a href="login.jsp" id="log">登录</a></div>
+            <div class="regist"><a href="register.jsp" id="reg">注册</a></div>
         </div>
     </div>
 </div>
 <div class="container">
     <form action="<%=path%>/post_getCastQuery.action?tab=<%="1"%>" method="post" id="cast">
         <div class="top">
-            <div class="logo"><a href="<%=path%>/post_getIndexQuery.action?tab=<%="1"%>"><img src="img/logo.jpg" width="100%" height="100%"></a></div>
+            <div class="logo"><a href="<%=path%>/post_getIndexQuery.action?tab=<%="1"%>"><img src="img/logo.jpg"
+                                                                                              width="100%"
+                                                                                              height="100%"></a></div>
             <div></div>
             <div>
                 <div class="search">
@@ -63,9 +65,15 @@
     </form>
     <div class="tab">
         <div>
-            <a href="<%=path%>/post_getCastQuery.action?tab=<%="1"%>&cast=<s:property value="#session.cast"/>"><div class="tabselect">房屋出租</div></a>
-            <a href="<%=path%>/post_getCastQuery.action?tab=<%="2"%>&cast=<s:property value="#session.cast"/>"><div class="tabselect highlight">房屋出售</div></a>
-            <a href="<%=path%>/post_getCastQuery.action?tab=<%="3"%>&cast=<s:property value="#session.cast"/>"><div class="tabselect">房屋求租</div></a>
+            <a href="<%=path%>/post_getCastQuery.action?tab=<%="1"%>&cast=<s:property value="#session.cast"/>">
+                <div class="tabselect">房屋出租</div>
+            </a>
+            <a href="<%=path%>/post_getCastQuery.action?tab=<%="2"%>&cast=<s:property value="#session.cast"/>">
+                <div class="tabselect highlight">房屋出售</div>
+            </a>
+            <a href="<%=path%>/post_getCastQuery.action?tab=<%="3"%>&cast=<s:property value="#session.cast"/>">
+                <div class="tabselect">房屋求租</div>
+            </a>
         </div>
         <div>
 
@@ -77,12 +85,13 @@
                     <div class="rent">
                         <div class="picture">
                             <a href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
-                            <img src="img/m2.jpg" height="100%" width="100%">
+                                <img src="img/m2.jpg" height="100%" width="100%">
                             </a>
                         </div>
                         <div>
-                            <a style="text-decoration: none" href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
-                            <div><s:property value="#post.title"/></div>
+                            <a style="text-decoration: none"
+                               href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
+                                <div><s:property value="#post.title"/></div>
                             </a>
                             <div>小区名称：<s:property value="#post.plotname"/></div>
                             <div>房屋户型：<s:property value="#post.housetype"/></div>
@@ -120,8 +129,9 @@
                             </a>
                         </div>
                         <div>
-                            <a href="<%=path%>/post_getCastQuery.action?tab=<%="1"%>&page=<s:property value="#request.pageBean1.totalPage"/>&cast=<s:property value="#session.cast"/>">
-                                尾页
+                            <a href="<%=path%>/post_getCastQuery.action?tab=<%="1"%>&page=<s:property
+                                value="#request.pageBean1.totalPage"/>&cast=<s:property value="#session.cast"/>">
+                            尾页
                             </a>
                         </div>
                     </s:if>
@@ -146,8 +156,9 @@
                             </a>
                         </div>
                         <div>
-                            <a style="text-decoration: none" href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
-                            <div><s:property value="#post.title"/></div>
+                            <a style="text-decoration: none"
+                               href="<%=path%>/post_detail.action?detail=<s:property value="#post.id"/>">
+                                <div><s:property value="#post.title"/></div>
                             </a>
                             <div>小区名称：<s:property value="#post.plotname"/></div>
                             <div>房屋户型：<s:property value="#post.housetype"/></div>
@@ -208,12 +219,13 @@
                     <div class="rentneed">
                         <div class="picture">
                             <a href="<%=path%>/help_detail.action?detail=<s:property value="#help.id"/>">
-                            <img src="img/m4.jpg" height="100%" width="100%">
+                                <img src="img/m4.jpg" height="100%" width="100%">
                             </a>
                         </div>
                         <div>
-                            <a style="text-decoration: none" href="<%=path%>/help_detail.action?detail=<s:property value="#help.id"/>">
-                            <div><s:property value="#help.title"/></div>
+                            <a style="text-decoration: none"
+                               href="<%=path%>/help_detail.action?detail=<s:property value="#help.id"/>">
+                                <div><s:property value="#help.title"/></div>
                             </a>
                             <div>求租地段：<s:property value="#help.district"/></div>
                             <div>入住时间：<s:property value="#help.lasttime"/></div>
@@ -308,6 +320,23 @@
 </body>
 <script>
     $(function () {
+        <s:if test="#session.user!=null">
+          $("#log").text("<s:property value="#session.user.username"/>");
+          $("#reg").text("注销");
+        </s:if>
+
+        $("#reg").click(function(){
+            if($("#reg").text()=="注销"){
+                $("#reg").attr("href","<%=path%>/user_logout.action");
+            }
+        });
+
+        $("#log").click(function(){
+            if($("#log").text()!="登录"){
+                $("#log").attr("href","personalpage.jsp");
+            }
+        })
+
         var province = '';
         $.getScript("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js", function () {
             province = remote_ip_info["province"];
@@ -318,9 +347,10 @@
         $(".saleblock").prev().hide();
         $(".saleblock").nextAll().hide();
 
-        $("#sub_cast").click(function(){
+        $("#sub_cast").click(function () {
             $("#cast").submit();
         });
+
     })
 </script>
 </html>
