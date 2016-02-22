@@ -253,17 +253,17 @@
                         </td>
                         <td>
                             <div class="editor">
-                                <script id="message" name="message" type="text/plain"
+                                <script id="container" name="message" type="text/plain"
                                         style="width:100%;height:200px"></script>
                                 <script type="text/javascript" charset="utf-8"
-                                        src="<%=path%>/editor/ueditor.config.js"></script>
+                                        src="<%=path%>/ueditor/ueditor.config.js"></script>
                                 <script type="text/javascript" charset="utf-8"
-                                        src="<%=path%>/editor/ueditor.all.min.js"></script>
+                                        src="<%=path%>/ueditor/ueditor.all.min.js"></script>
                                 <script type="text/javascript" charset="utf-8"
-                                        src="<%=path%>/editor/lang/zh-cn/zh-cn.js"></script>
+                                        src="<%=path%>/ueditor/lang/zh-cn/zh-cn.js"></script>
                                 <script type="text/javascript">
                                     $(function () {
-                                        var ue = UE.getEditor('message', {
+                                        var ue = UE.getEditor('container', {
                                             autoHeightEnabled: false,
                                             toolbars: [
                                                 ['source', 'undo', 'redo', 'bold', 'italic', 'underline', 'fontfamily', 'fontsize', 'simpleupload',
