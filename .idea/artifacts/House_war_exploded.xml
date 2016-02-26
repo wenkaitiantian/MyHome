@@ -10,9 +10,9 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
           <element id="library" level="project" name="Struts 2-2.3.20.1" />
-          <element id="library" level="project" name="editor-lib" />
           <element id="library" level="project" name="Javamail" />
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="editor-lib" />
         </element>
       </element>
     </root>
