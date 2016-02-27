@@ -150,6 +150,7 @@ public class UserAction {
     public String getPersonal(){
         HttpServletRequest request = ServletActionContext.getRequest();
         User user=(User)ActionContext.getContext().getSession().get("user");
+        if(user==null) return "toPersonalPage";
         int id=user.getId();
         PostDao pd=new PostDaoImpl();
         HelpDao hd=new HelpDaoImpl();
