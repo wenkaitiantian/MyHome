@@ -12,16 +12,6 @@
     <link rel="stylesheet" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-    <style>
-        #code {
-            font-family: Arial;
-            font-style: italic;
-            font-weight: bold;
-            border: 0;
-            letter-spacing: 2px;
-            color: blue;
-        }
-    </style>
 </head>
 <body>
 <div class="container">

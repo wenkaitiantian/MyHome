@@ -59,3 +59,11 @@ body{
 	background-color: rgb(12,45,34);
 	color: #fff;
 }
+#code {
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	border: 0;
+	letter-spacing: 2px;
+	color: blue;
+}
