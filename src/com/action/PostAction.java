@@ -236,6 +236,7 @@ public class PostAction {
         UserDao ud = new UserDaoImpl();
         p = pd.getPost(Integer.parseInt(detail));
         String iconPath = new String();
+        User user = ud.getUser(p.getPostid());
         iconPath = ud.getUser(p.getPostid()).getIcon();
         HttpServletRequest request = ServletActionContext.getRequest();
         request.setAttribute("detail", p);

@@ -103,19 +103,19 @@
 						</s:else>
 					</div>
 					<div>
-						袁广鑫
+						${requestScope.detail.linkname}
 					</div>
 				</div>
 				<div>
 					<div>
 						<font style="font-weight: bold"> 电子邮件：</font>
-						<a class="email">274841922@qq.com</a>
+						<a class="email">${requestScope.detail.qq}@qq.com</a>
 						<br/>
 						<font style="font-weight: bold"> 联系电话：</font>
-						<a class="email">18324601102</a>
+						<a class="email">${requestScope.detail.tel}</a>
 						<br/>
 						<font style="font-weight: bold"> QQ：</font>
-						<a class="email">274841922</a>
+						<a class="email">${requestScope.detail.qq}</a>
 					</div>
 					<div>
 					</div>

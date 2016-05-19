@@ -90,16 +90,19 @@
 						</s:else>
 					</div>
 					<div>
-						袁广鑫
+						${requestScope.detail.linkname}
 					</div>
 				</div>
 				<div>
 					<div>
-						<font style="font-weight: bold"> 联系电话：</font>
-						<a class="email">18324601102</a>
+						<font style="font-weight: bold"> 电子邮件：</font>
+						<a class="email">${requestScope.detail.qq}@qq.com</a>
 						<br/>
-						<font style="font-weight: bold"> 联系人：</font>
-						<a class="email">袁广鑫</a>
+						<font style="font-weight: bold"> 联系电话：</font>
+						<a class="email">${requestScope.detail.tel}</a>
+						<br/>
+						<font style="font-weight: bold"> QQ：</font>
+						<a class="email">${requestScope.detail.qq}</a>
 					</div>
 					<div>
 					</div>
