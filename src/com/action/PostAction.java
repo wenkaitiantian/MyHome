@@ -151,7 +151,7 @@ public class PostAction {
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
                         + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
             } else {
-                hql2 = "from Post where types=1 and location ='" + loc + "' and mo" +
+                hql2 = "from Post where types=1 and location like'" + "%"+loc+"%" + "' and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
                         + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
 
@@ -168,7 +168,7 @@ public class PostAction {
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
                         + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by money";
             } else {
-                hql2 = "from Post where types=1 and location ='" + loc + "' and mo" +
+                hql2 = "from Post where types=1 and location like'" +"%"+ loc +"%"+ "' and mo" +
                         "ney between " + p[0] + " and " + p[1] + " and sizes between " + a[0] + " and "
                         + a[1] + " and rooms between " + h[0] + " and " + h[1] + " order by posttime desc";
 
