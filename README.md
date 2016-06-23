@@ -48,6 +48,7 @@ Model 层使用了 **Hibernate** 做数据持久化处理。
 11. 管理员管理：管理员可以再添加其他的管理员。
 
 ##IDE
+
 系统采用IDEA开发，后台由Navicat for mysql提供数据支持。
 
 
